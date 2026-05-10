@@ -6,7 +6,7 @@ variable "function_name" {
 variable "archive_path" {
   description = "Шлях до zip-архіву з кодом"
   type        = string
-}
+} 
 
 variable "role_arn" { type = string }
 variable "handler" { type = string }

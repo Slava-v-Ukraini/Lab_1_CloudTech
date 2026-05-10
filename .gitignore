@@ -4,6 +4,7 @@
 *.tfvars
 .terraform.lock.hcl
 
+readme.md
 *.zip
 
 node_modules/
