@@ -21,6 +21,11 @@ exports.handler = async (event) => {
   const response = await docClient.send(command);
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "Course updated", updatedAttributes: response.Attributes }),
+    headers: {
+        "Access-Control-Allow-Origin": "*", // Дозволяє запити з будь-якого домену
+        "Access-Control-Allow-Methods": "OPTIONS,GET,POST,PUT,DELETE",
+        "Access-Control-Allow-Headers": "Content-Type"
+    },
+    body: JSON.stringify(courses),
   };
 };
