@@ -5,7 +5,7 @@ const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
 exports.handler = async (event) => {
-  const id = event.pathParameters ? event.pathParameters.id : (event.body ? JSON.parse(event.body).id : null);
+  const id = event.id || event.pathParameters ? event.pathParameters.id : (event.body ? JSON.parse(event.body).id : null);
 
   if (!id) {
     return { statusCode: 400, body: JSON.stringify({ message: "Missing course ID" }) };
