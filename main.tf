@@ -46,7 +46,16 @@ resource "aws_iam_role_policy" "lambda_policy" {
 
 
 data "archive_file" "zip" {
-  for_each    = toset(["get-all-authors", "get-all-courses", "get-course", "save-course", "update-course", "delete-course"])
+  for_each    = toset([
+    "get-all-authors", 
+    "get-all-courses", 
+    "get-course", 
+    "save-course", 
+    "update-course", 
+    "delete-course",
+    "save-author",
+    "delete-author" 
+  ])
   type        = "zip"
   source_file = "src/${each.key}.js"
   output_path = "${each.key}.zip"

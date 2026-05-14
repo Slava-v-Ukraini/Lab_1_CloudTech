@@ -11,7 +11,6 @@ variable "archive_path" {
 variable "role_arn" { type = string }
 variable "handler" { type = string }
 
-# Для іменування як у одногрупника
 variable "namespace" { 
   type    = string
   default = "my-project"
